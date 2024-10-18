@@ -1,4 +1,4 @@
-const { aiBtc } = require('../../aiBtc'); // Sesuaikan dengan path file aiBtc.js
+const { aiBtc } = require('../../aiBtc'); // Sesuaikan path file aiBtc.js
 
 exports.handler = async function(event, context) {
     const userMessage = event.queryStringParameters.message;
