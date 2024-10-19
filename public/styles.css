@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,32 +6,161 @@ body {
     padding: 20px;
 }
 
+/* Container Styling */
 .container {
-    max-width: 600px;
+    width: 60%;
     margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Ensures it looks good on larger screens */
 }
 
+/* Chat Box Styling */
 #chat-box {
-    height: 300px;
-    overflow-y: scroll;
     border: 1px solid #ddd;
-    padding: 10px;
+    height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Styling */
+.message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 75%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraph Styling */
+.message div {
     margin-bottom: 10px;
+    line-height: 1.5;
 }
 
-#user-input {
-    width: 80%;
-    padding: 10px;
+/* List Styling */
+ol {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style-type: decimal; /* Ensure list numbers are correctly displayed */
+}
+ol li {
+    margin-bottom: 8px; /* Spacing between list items */
+}
+.message h4 {
+    margin: 15px 0 10px;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;  /* Improve spacing for readability */
 }
 
-#send-button {
+.message div, .message li {
+    margin-bottom: 10px;
+    line-height: 1.5;  /* Ensure consistent spacing between lines */
+}
+/* User Message Styling */
+.user-message {
+    background-color: #e7f4e4;
+    color: #256029;
+    text-align: right;
+    margin-left: auto;
+    border: 1px solid #b2d8b4;
+}
+
+/* Bot Message Styling */
+.bot-message {
+    background-color: #f8d7da;
+    color: #842029;
+    text-align: left;
+    margin-right: auto;
+    border: 1px solid #f5c2c7;
+}
+
+/* Typing Indicator Styling */
+#typing-indicator {
+    font-style: italic;
+    color: #888;
+}
+
+/* Error Message Styling */
+.error-message {
+    background-color: #fdecea;
+    color: #d9534f;
+    border: 1px solid #f5c2c7;
+}
+
+/* Code Block Styling */
+.code-block {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
     padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+}
+
+.code-container {
+    position: relative;
+    margin-top: 10px;
+}
+
+/* Copy Button Styling */
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
     background-color: #007bff;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Preformatted Text Styling */
+pre {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    border-radius: 5px;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+code {
+    font-family: monospace;
+    color: #ffffff;
+}
+
+/* Input and Button Styling */
+#user-input {
+    width: 75%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #0056b3;
 }
