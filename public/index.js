@@ -62,7 +62,7 @@ function addMessage(sender, message, type = 'default') {
 }
 
 function formatTextBlocks(parentDiv, text, sender) {
-    const paragraphs = text.split(/\n\s*\n|(\d+\.\s)|(?=\*\*)/g);
+    const paragraphs = text.split(/\n\s*\n|(?=\d+\.\s)|(?=\*\*)/g);
 
     paragraphs.forEach((paragraph) => {
         if (!paragraph) return; // Skip empty lines
@@ -70,31 +70,35 @@ function formatTextBlocks(parentDiv, text, sender) {
         const trimmedText = paragraph.trim();
 
         if (trimmedText.match(/^\d+\.\s/)) {
-            // Numbered list item, bold only the number and the first word
+            // Handle numbered list items
+            const parts = trimmedText.split(/\s(.+)/);
             const listItem = document.createElement('li');
-            listItem.innerHTML = `<strong>${escapeHTML(trimmedText.split(' ')[0])}</strong> ${escapeHTML(trimmedText.substring(trimmedText.indexOf(' ') + 1))}`;
+            listItem.innerHTML = `${escapeHTML(parts[0])} ${escapeHTML(parts[1])}`;
             let list = parentDiv.querySelector('ol') || document.createElement('ol');
             list.appendChild(listItem);
             if (!parentDiv.contains(list)) parentDiv.appendChild(list);
-        }
-         else if (trimmedText.startsWith('**')) {
-            // Handle headings (bold only the first part of the heading)
-            const headingText = trimmedText.replace(/\*\*/g, '').trim();
-            const firstWordEndIndex = headingText.indexOf(' ') > 0 ? headingText.indexOf(' ') : headingText.length;
-            const firstWord = headingText.substring(0, firstWordEndIndex);
-            const remainingText = headingText.substring(firstWordEndIndex);
-
+        } else if (trimmedText.startsWith('####')) {
+            // Heading level 4
+            const headingText = trimmedText.replace(/####/g, '').trim();
             const headingDiv = document.createElement('h4');
-            headingDiv.innerHTML = `<strong>${escapeHTML(firstWord)}</strong>${escapeHTML(remainingText)}`;
+            headingDiv.textContent = headingText;
+            parentDiv.appendChild(headingDiv);
+        } else if (trimmedText.startsWith('###')) {
+            // Heading level 3
+            const headingText = trimmedText.replace(/###/g, '').trim();
+            const headingDiv = document.createElement('h3');
+            headingDiv.textContent = headingText;
             parentDiv.appendChild(headingDiv);
         } else {
-            // Regular paragraph (normal text without bold)
+            // Regular paragraph
             const textDiv = document.createElement('div');
-            textDiv.innerHTML = `${escapeHTML(trimmedText)}`;
+            textDiv.textContent = trimmedText;
             parentDiv.appendChild(textDiv);
         }
     });
 }
+
+
 
 function showTypingIndicator() {
     const chatBox = document.getElementById('chat-box');

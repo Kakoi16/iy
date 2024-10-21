@@ -28,10 +28,21 @@ body {
 /* Message Styling */
 .message {
     margin: 10px 0;
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
-    max-width: 75%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.message h3 {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+    color: #333;
+}
+
+.message h4 {
+    font-size: 1.1em;
+    margin: 0.5em 0;
+    color: #555;
 }
 
 /* Paragraph Styling */
@@ -42,40 +53,33 @@ body {
 
 /* List Styling */
 ol {
-    margin: 10px 0;
     padding-left: 20px;
-    list-style-type: decimal; /* Ensure list numbers are correctly displayed */
-}
-ol li {
-    margin-bottom: 8px; /* Spacing between list items */
-}
-.message h4 {
-    margin: 15px 0 10px;
-    font-size: 1.1em;
-    color: #333;
-    line-height: 1.6;  /* Improve spacing for readability */
+    margin: 10px 0; /* Aligns the number with text */
 }
 
+ol li {
+    margin: 5px 0; /* Indent list text slightly */
+}
 .message div, .message li {
     margin-bottom: 10px;
-    line-height: 1.5;  /* Ensure consistent spacing between lines */
-}
-/* User Message Styling */
-.user-message {
-    background-color: #e7f4e4;
-    color: #256029;
-    text-align: right;
-    margin-left: auto;
-    border: 1px solid #b2d8b4;
+    line-height: 1.6;  /* More spacing for readability */
 }
 
+/* User Message Styling */
+.user-message {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    text-align: right;
+    margin-left: auto;
+    border: 1px solid #badbcc;
+}
 /* Bot Message Styling */
 .bot-message {
-    background-color: #f8d7da;
-    color: #842029;
+    background-color: #f0f0f5;
+    color: #333;
     text-align: left;
     margin-right: auto;
-    border: 1px solid #f5c2c7;
+    border: 1px solid #ddd;
 }
 
 /* Typing Indicator Styling */
@@ -93,11 +97,11 @@ ol li {
 
 /* Code Block Styling */
 .code-block {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
+    background-color: #2e3440; /* Dark theme background */
+    color: #d8dee9; /* Light text color */
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
     overflow-x: auto;
     font-family: 'Courier New', Courier, monospace;
     white-space: pre-wrap;
